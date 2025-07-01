@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociology Department - University College</title>
+   <link rel ="stylesheet" href = "depstyle.css"> 
+
+</head>
+<body>
+    <!-- College Header -->
+    <div class="college-header">
+        <div class="college-header-content">
+            <div class="logo-image">
+                <img src="images/left-logo.png" style="width: 80px; height: 80px; border-radius: 10px; object-fit: cover;">
+            </div>
+            <div class="college-info">
+                <div class="college-name">Government Arts and Science College - Sankarankovil</div>
+                <div class="college-tagline">Excellence in Education</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Sociology Department</h1>
+            <p>Understanding Society, Culture & Human Behavior</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('courses')">Courses</button>
+            <button class="tab-button" onclick="showTab('faculty')">Faculty</button>
+            <button class="tab-button" onclick="showTab('gallery')">Gallery</button>
+        </div>
+
+        <div id="courses" class="tab-content active">
+            <h2 class="section-title">Our Courses</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Bachelor of Arts in Sociology</h3>
+                    <p>A comprehensive undergraduate program exploring social structures, human behavior, and cultural patterns. Students develop analytical skills to understand contemporary social issues and prepare for careers in social work, research, and community development.</p>
+                </div>
+                   </div>
+        </div>
+
+         <div id="faculty" class="tab-content">
+            <h2 class="section-title">Our Faculty</h2>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/Sugumaran.jpg" alt="Dr. Sarah Mitchell" 
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>SM</div>';">
+                    </div>
+                    <div class="faculty-name">Dr.N. Sukumaran</div>
+                    <div class="faculty-designation">Assistant Professor & Head</div>
+                     <div class="faculty-specialization">Urban Sociology & Community Development</div>
+                    <div class="faculty-contact">araj@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/vennila.jpg" alt="Dr. James Harrison"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>JH</div>';">
+                    </div>
+                    <div class="faculty-name">Dr. Vennila</div>
+                    <div class="faculty-designation">Guest Lecturer</div>
+                    <div class="faculty-specialization">Development Studies & Social Change</div>
+                    <div class="faculty-contact">vkumar@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/faculty/emily-rodriguez.jpg" alt="Dr. Emily Rodriguez"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>ER</div>';">
+                    </div>
+                    <div class="faculty-name">Mr. Balamurugan</div>
+                    <div class="faculty-designation">P.T.A</div>
+                    <div class="faculty-specialization">Social Psychology & Group Dynamics</div>
+                    <div class="faculty-contact">rnair@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/faculty/malliga.jpg" alt="Dr. Michael Chen"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>MC</div>';">
+                    </div>
+                    <div class="faculty-name">Mrs. Malliga</div>
+                    <div class="faculty-designation">P.T.A</div>
+                    <div class="faculty-specialization">Cultural Anthropology & Rural Sociology</div>
+                    <div class="faculty-contact">mgupta@college.edu</div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <div id="gallery" class="tab-content">
+            <h2 class="section-title">Department Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div>Social Research<br>Conference 2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Community Outreach<br>Program</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Gender Equality<br>Seminar</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Student Field Work<br>Documentation</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Department Library<br>& Research Center</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Faculty Research<br>Symposium</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Graduation<br>Ceremony 2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Social Awareness<br>Campaign</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="depscript.js"></script>
+
+</body>
+</html>

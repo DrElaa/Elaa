@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Department - University College</title>
+    <link rel="stylesheet" href="depstyle.css"> 
+</head>
+<body>
+    <!-- College Header -->
+    <div class="college-header">
+        <div class="college-header-content">
+            <div class="logo-image">
+                <img src="images/left-logo.png" style="width: 80px; height: 80px; border-radius: 10px; object-fit: cover;">
+            </div>
+            <div class="college-info">
+                <div class="college-name">Government Arts and Science College - Sankarankovil</div>
+                <div class="college-tagline">Excellence in Education</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Tamil Department</h1>
+            <p>Excellence in Tamil Literature, Language & Culture</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('faculty')">Faculty</button>
+            <button class="tab-button" onclick="showTab('gallery')">Gallery</button>
+        </div>
+
+        <div id="faculty" class="tab-content active">
+            <h2 class="section-title">Our Faculty</h2>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/tamil-hod.jpg" alt="Dr. G. Kalagopi" 
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>GK</div>';">
+                    </div>
+                    <div class="faculty-name">Dr. G. Kalagopi</div>
+                    <div class="faculty-designation">Assistant Professor & Head</div>
+                    <div class="faculty-specialization">Classical Tamil Literature & Sangam Poetry</div>
+                    <div class="faculty-contact">gkalagopi@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/mano mam.jpg" alt="Dr. Manoharammal"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>MM</div>';">
+                    </div>
+                    <div class="faculty-name">Dr. Manoharammal</div>
+                    <div class="faculty-designation">Guest Lecturer</div>
+                    <div class="faculty-specialization">Modern Tamil Literature & Literary Criticism</div>
+                    <div class="faculty-contact">manoharammal@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/magesh.jpg" alt="Dr. Mageshpandi"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>MP</div>';">
+                    </div>
+                    <div class="faculty-name">Dr. Mageshpandi</div>
+                    <div class="faculty-designation">Guest Lecturer</div>
+                    <div class="faculty-specialization">Tamil Linguistics & Computational Tamil</div>
+                    <div class="faculty-contact">mageshpandi@college.edu</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery" class="tab-content">
+            <h2 class="section-title">Department Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div>Tamil Literary<br>Conference 2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Classical Tamil<br>Poetry Recital</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Tamil Drama<br>Performance</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Student Tamil<br>Speech Contest</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Tamil Manuscript<br>Exhibition</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Faculty Research<br>Symposium</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Tamil New Year<br>Celebration 2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Tamil Literary<br>Magazine Launch</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="depscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department of Tamil - GASC Sankarankovil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 300% 300%;
+            animation: logoGradientShift 8s ease infinite;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes logoGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        /* Improved hover effect with better animation */
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Enhanced active state */
+        .nav-links a.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Focus states for accessibility */
+        .nav-links a:focus {
+            outline: 3px solid #ff6b6b;
+            outline-offset: 2px;
+            border-radius: 25px;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Container and Content */
+        .container {
+            margin-top: 100px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: titlePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #f093fb);
+            background-size: 300% 100%;
+            animation: colorStripe 6s linear infinite;
+        }
+
+        @keyframes colorStripe {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 0%; }
+        }
+
+        .content-section.active {
+            display: block;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 2px;
+        }
+
+        .home-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .welcome-text {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 5px solid #ff6b6b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .welcome-text strong {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .highlight-card:nth-child(1) {
+            border-image: linear-gradient(135deg, #ff6b6b, #ff8e53) 1;
+        }
+
+        .highlight-card:nth-child(2) {
+            border-image: linear-gradient(135deg, #4ecdc4, #44a08d) 1;
+        }
+
+        .highlight-card:nth-child(3) {
+            border-image: linear-gradient(135deg, #45b7d1, #96c93d) 1;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .highlight-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .highlight-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #333, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .highlight-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Faculty Section */
+        .admin-staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .staff-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .staff-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 300% 100%;
+            animation: colorStripe 8s linear infinite;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .staff-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid;
+            border-image: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1) 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .staff-card:hover .staff-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .staff-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #333, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .staff-position {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .staff-details a {
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .staff-details a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.05);
+        }
+
+        /* Gallery Images */
+        .highlight-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight-card:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                border-radius: 0 0 20px 20px;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                text-align: center;
+                padding: 1rem 1.5rem;
+                width: 100%;
+                display: block;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .logo-main {
+                font-size: 1.1rem;
+            }
+
+            .logo-sub {
+                font-size: 0.8rem;
+            }
+
+            .logo-image {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .container {
+                padding: 1rem;
+                margin-top: 90px;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+                border-radius: 20px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .admin-staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight-card, .staff-card {
+                padding: 2rem;
+            }
+
+            .welcome-text {
+                padding: 1.5rem;
+            }
+
+            .welcome-text p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .container {
+                margin-top: 80px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .highlights-grid {
+                gap: 1.5rem;
+            }
+
+            .highlight-card, .staff-card {
+                padding: 1.5rem;
+            }
+
+            .welcome-text {
+                padding: 1rem;
+            }
+
+            .highlight-icon {
+                font-size: 3rem;
+            }
+
+            .staff-avatar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Accessibility */
+        .tab-navigation *:focus {
+            outline: 3px solid #ff6b6b;
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Fun floating elements */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            left: 80%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #45b7d1, #96ceb4);
+            border-radius: 50%;
+            animation-delay: 7s;
+        }
+
+        .shape:nth-child(3) {
+            left: 45%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 50%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header>
+        <nav>
+              <div class="logo">
+                <div class="logo-image">
+                    <img src="images/left-logo.png" style="width: 65px; height: 65px; border-radius: 10px; object-fit: cover;">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">GASC - Sankarankovil</div>
+                    <div class="logo-sub">Excellence in Education</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home'); return false;" class="active">🏠 Home</a></li>
+                <li><a href="#" onclick="showSection('faculty'); return false;">👨‍🏫 Faculty</a></li>
+                <li><a href="#" onclick="showSection('gallery'); return false;">🎨 Gallery</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="pageTitle" class="page-title">🌟 Department of Tamil 🌟</div>
+        <div class="main-content">
+            <!-- Home Section -->
+            <div id="home" class="content-section active">
+                <div class="section-title">Welcome to the Department of Tamil</div>
+                <div class="home-content">
+                    <div class="welcome-text">
+                        <p>
+                            🎓 The Department of Tamil at GASC Sankarankovil is committed to excellence in teaching, research, and cultural activities.
+                            Our department celebrates the rich heritage of the Tamil language and literature, and fosters a vibrant academic environment.
+                        </p>
+                        <p>
+                            <strong>🎯 Vision:</strong> To impart quality education in Tamil language and literature and to cultivate a deep appreciation for Tamil culture and values.
+                        </p>
+                        <p>
+                            <strong>🚀 Mission:</strong> To nurture creative and critical thinking, promote research, and encourage participation in literary and cultural events.
+                        </p>
+                    </div>
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">📚</div>
+                            <h3>Rich Curriculum</h3>
+                            <p>Our comprehensive curriculum covers classical, medieval, and modern Tamil literature, grammar, and linguistics with innovative teaching methods.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🎉</div>
+                            <h3>Cultural Programs</h3>
+                            <p>We organize vibrant seminars, workshops, and literary festivals to celebrate Tamil heritage and promote cultural awareness.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">👨‍🏫</div>
+                            <h3>Experienced Faculty</h3>
+                            <p>Our distinguished faculty members are dedicated scholars and passionate educators committed to student success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Section -->
+            <div id="faculty" class="content-section">
+                <div class="section-title">Our Distinguished Faculty</div>
+                <div class="admin-staff-grid">
+                    <div class="staff-card">
+                        <img src="images/STAFF/bala.jpg" alt="Dr. S. Kumaravel" class="staff-avatar">
+                        <h4>Dr. S. Kumaravel</h4>
+                        <div class="staff-position">👑 Associate Professor & Head</div>
+                        <div class="staff-details">
+                            <div>📧 Email: <a href="mailto:kumaravel.tamil@gasc.edu.in">kumaravel.tamil@gasc.edu.in</a></div>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ms. R. Meenakshi" class="staff-avatar">
+                        <h4>Ms. R. Meenakshi</h4>
+                        <div class="staff-position">🌟 Assistant Professor</div>
+                        <div class="staff-details">
+                            <div>📧 Email: <a href="mailto:meenakshi.tamil@gasc.edu.in">meenakshi.tamil@gasc.edu.in</a></div>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Mr. T. Arul" class="staff-avatar">
+                        <h4>Mr. T. Arul</h4>
+                        <div class="staff-position">✨ Assistant Professor</div>
+                        <div class="staff-details">
+                            <div>📧 Email: <a href="mailto:arul.tamil@gasc.edu.in">arul.tamil@gasc.edu.in</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div id="gallery" class="content-section">
+                <div class="section-title">Vibrant Campus Life Gallery</div>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop" alt="Pongal Celebration 2024">
+                        <h3>🎊 Pongal Celebration 2024</h3>
+                        <p>Students and faculty celebrating the traditional Pongal festival with joy and enthusiasm.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=200&fit=crop" alt="Tamil Seminar">
+                        <h3>📖 Tamil Literature Seminar</h3>
+                        <p>Annual seminar featuring eminent Tamil scholars and brilliant student presentations.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" alt="Drama Performance">
+                        <h3>🎭 Cultural Drama Performance</h3>
+                        <p>Students showcasing their talent through traditional Tamil drama performances.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop" alt="Literature Expo">
+                        <h3>📚 Literature Exhibition</h3>
+                        <p>Fascinating exhibition on ancient and modern Tamil literature treasures.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Workshop">
+                        <h3>🏛️ Sangam Literature Workshop</h3>
+                        <p>Interactive workshop exploring the depths of ancient Tamil literary masterpieces.</p>
+                    </div>
+                    <div class="highlight-card">
+                    <div class="highlight-card">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop" alt="Cultural Event">
+                        <h3>💃 Grand Cultural Festival</h3>
+                        <p>Students performing traditional Tamil dances, poetry, and cultural expressions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+function showSection(sectionId) {
+    // Remove active class from all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Add active class to selected section
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add('active');
+    }
+    
+    // Update navigation active states
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Set active nav link
+    const activeLink = document.querySelector(`.nav-links a[onclick*="${sectionId}"]`);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+    
+    // Update page title
+    const pageTitle = document.getElementById('pageTitle');
+    const titles = {
+        'home': '🌟 Department of Tamil 🌟',
+        'faculty': '👨‍🏫 Department of Tamil - Faculty 👩‍🏫',
+        'gallery': '🎨 Department of Tamil - Gallery 📸'
+    };
+    
+    if (titles[sectionId]) {
+        pageTitle.textContent = titles[sectionId];
+    }
+    
+    // Close mobile menu
+    const navLinksContainer = document.querySelector('.nav-links');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (navLinksContainer && mobileMenu) {
+        navLinksContainer.classList.remove('active');
+        mobileMenu.classList.remove('active');
+    }
+    
+    // Smooth scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Mobile menu toggle functionality
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', function (e) {
+            e.preventDefault();
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+    
+    // Intersection Observer for card animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Apply observer to cards with staggered animation
+    const cards = document.querySelectorAll('.highlight-card, .staff-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = `all 0.8s ease ${index * 0.2}s`;
+        observer.observe(card);
+    });
+    
+    // Enhanced hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('.highlight-card, .staff-card');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                this.style.transform = 'translateY(-15px) scale(1.05)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            }
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            }
+        });
+        
+        // Touch events for mobile devices
+        element.addEventListener('touchstart', function(e) {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.transition = 'all 0.3s ease';
+        });
+        
+        element.addEventListener('touchend', function(e) {
+            setTimeout(() => {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.transition = 'all 0.3s ease';
+            }, 200);
+        });
+    });
+
+    // Parallax effect for floating shapes
+    let ticking = false;
+    function updateShapes() {
+        const scrolled = window.pageYOffset;
+        const shapes = document.querySelectorAll('.shape');
+        shapes.forEach((shape, index) => {
+            const speed = 0.2 + (index * 0.1);
+            const rotation = scrolled * 0.1;
+            shape.style.transform = `translateY(${scrolled * speed}px) rotate(${rotation}deg)`;
+        });
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateShapes);
+            ticking = true;
+        }
+    });
+});
+
+// Header scroll effect with smooth transition
+let headerTicking = false;
+function updateHeader() {
+    const header = document.querySelector('header');
+    if (header) {
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 10px 40px rgba(31, 38, 135, 0.4)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = '0 8px 32px rgba(31, 38, 135, 0.37)';
+        }
+    }
+    headerTicking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!headerTicking) {
+        requestAnimationFrame(updateHeader);
+        headerTicking = true;
+    }
+});
+
+// Accessibility improvements
+document.addEventListener('keydown', function(e) {
+    // Close mobile menu on Escape key
+    if (e.key === 'Escape') {
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if (navLinks && mobileMenu) {
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    }
+    
+    // Add tab navigation class for focus styles
+    if (e.key === 'Tab') {
+        document.body.classList.add('tab-navigation');
+    }
+});
+
+// Remove tab navigation class on mouse interaction
+document.addEventListener('mousedown', function() {
+    document.body.classList.remove('tab-navigation');
+});
+
+// Card click animation with pulse effect
+document.addEventListener('DOMContentLoaded', function() {
+    // Create pulse animation styles
+    if (!document.getElementById('pulse-styles')) {
+        const style = document.createElement('style');
+        style.id = 'pulse-styles';
+        style.textContent = `
+            @keyframes cardPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .pulse-animation {
+                animation: cardPulse 0.6s ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Add click animation to interactive cards
+    document.querySelectorAll('.highlight-card, .staff-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Prevent multiple animations
+            if (this.classList.contains('pulse-animation')) return;
+            
+            this.classList.add('pulse-animation');
+            setTimeout(() => {
+                this.classList.remove('pulse-animation');
+            }, 600);
+        });
+    });
+});
+
+// Smooth section transitions
+function addSectionTransitions() {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+    });
+}
+
+// Initialize section transitions when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addSectionTransitions);
+} else {
+    addSectionTransitions();
+}
+
+// Error handling for images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            console.log('Image failed to load:', this.src);
+        });
+        
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        // Set initial opacity for smooth loading
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+    });
+});
+
+// Improved performance with debounced resize handler
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        // Recalculate any layout-dependent features
+        const cards = document.querySelectorAll('.highlight-card, .staff-card');
+        cards.forEach(card => {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                card.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    }, 250);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Department - University College</title>
+    <link rel="stylesheet" href="depstyle.css"> 
+</head>
+<body>
+    <!-- College Header -->
+    <div class="college-header">
+        <div class="college-header-content">
+            <div class="logo-image">
+                <img src="images/left-logo.png" style="width: 80px; height: 80px; border-radius: 10px; object-fit: cover;">
+            </div>
+            <div class="college-info">
+                <div class="college-name">Government Arts and Science College - Sankarankovil</div>
+                <div class="college-tagline">Excellence in Education</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Statistics Department</h1>
+            <p>Data Analysis, Research & Statistical Modeling</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('courses')">Courses</button>
+            <button class="tab-button" onclick="showTab('faculty')">Faculty</button>
+            <button class="tab-button" onclick="showTab('gallery')">Gallery</button>
+        </div>
+
+        <div id="courses" class="tab-content active">
+            <h2 class="section-title">Our Courses</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Bachelor of Science in Statistics</h3>
+                    <p>A comprehensive undergraduate program covering probability theory, statistical inference, regression analysis, and data science. Students develop strong analytical skills and learn to apply statistical methods to real-world problems.</p>
+                </div>
+               
+            </div>
+        </div>
+
+        <div id="faculty" class="tab-content">
+            <h2 class="section-title">Our Faculty</h2>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/stats1.jpg" alt="Dr. Rajesh Sharma" 
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>RS</div>';">
+                    </div>
+                    <div class="faculty-name">Dr.S.Bangusha Devi</div>
+                    <div class="faculty-designation">Guest Lecturer</div>
+                    <div class="faculty-specialization">Mathematical Statistics & Probability Theory</div>
+                    <div class="faculty-contact">rsharma@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/faculty/priya-patel.jpg" alt="Dr. Priya Patel"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>PP</div>';">
+                    </div>
+                    <div class="faculty-name">Dr. M. Velusamy</div>
+                    <div class="faculty-designation">Guest Lecturer</div>
+                    <div class="faculty-specialization">Biostatistics & Epidemiology</div>
+                    <div class="faculty-contact">ppatel@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/Udhayakumar.jpg" alt="Dr. Amit Singh"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>AS</div>';">
+                    </div>
+                    <div class="faculty-name">Mr. Udhayakumar</div>
+                    <div class="faculty-designation">P.T.A</div>
+                    <div class="faculty-specialization">Data Mining & Machine Learning</div>
+                    <div class="faculty-contact">asingh@college.edu</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo loading">
+                        <img src="images/STAFF/Velumayil.jpg" alt="Dr. Meera Nair"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'faculty-photo-placeholder\'>MN</div>';">
+                    </div>
+                    <div class="faculty-name">Mrs. Velumayil</div>
+                    <div class="faculty-designation">P.T.A</div>
+                    <div class="faculty-specialization">Time Series Analysis & Econometrics</div>
+                    <div class="faculty-contact">mnair@college.edu</div>
+                </div>
+                
+                </div>
+        </div>
+
+        <div id="gallery" class="tab-content">
+            <h2 class="section-title">Department Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div>Statistics Conference<br>2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Data Analytics<br>Workshop</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Research Methodology<br>Seminar</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Student Project<br>Presentations</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Computer Lab<br>& Software Training</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Industry Expert<br>Guest Lecture</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Graduation<br>Ceremony 2024</div>
+                </div>
+                <div class="gallery-item">
+                    <div>Statistical Journal<br>Publication Event</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="depscript.js"></script>
+</body>
+</html>
